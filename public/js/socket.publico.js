@@ -25,7 +25,7 @@ socket.on('ultimos4', function(data) {
 });
 
 function actualizaHTML(ultimos4) {
-	for(var i = 0; i <= ultimos4.lengt; i++) {
+	for(var i = 0; i <= ultimos4.length-1; i++) {
 		lblTickets[i].text('Ticket ' + ultimos4[i].numero);
 		lblEscritorios[i].text('Escritorio ' + ultimos4[i].escritorio);
 	}
