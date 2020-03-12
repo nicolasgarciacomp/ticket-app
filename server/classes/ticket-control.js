@@ -1,3 +1,15 @@
+/**
+ * @fileoverview	./server/classes/ticket-control.js
+ *
+ * @version         1.0
+ *
+ * @author          Nicolás Garcia <nicolasgarciacomp@gmail.com>
+ *
+ * History
+ * v1.0 – Se creó el archivo
+**/
+
+// Requires
 const fs = require('fs');
 
 class Ticket {
@@ -25,6 +37,15 @@ class TicketControl {
 		}
 	}
 
+	/**
+	 * @name	siguiente
+	 *
+	 * @description	Selecciona el siguiente ticket del array y encola uno nuevo
+	 *
+	 * @param	{}
+	 *
+	 * @return  {string}
+	**/
 	siguiente() {
 		this.ultimo += 1;
 		let ticket = new Ticket(this.ultimo, null);
@@ -34,14 +55,41 @@ class TicketControl {
 		return `Ticket ${ this.ultimo }`;
 	}
 
+	/**
+	 * @name	getUltimoTicket
+	 *
+	 * @description	Devuelve el ultimo ticket
+	 *
+	 * @param	{}
+	 *
+	 * @return  {string}
+	**/
 	getUltimoTicket() {
 		return `Ticket ${ this.ultimo }`;
 	}
 
+	/**
+	 * @name	getUltimos4
+	 *
+	 * @description	Devuelve los ultimos 4 tickets del array
+	 *
+	 * @param	{}
+	 *
+	 * @return  {array}
+	**/
 	getUltimos4() {
 		return this.ultimos4;
 	}
 
+	/**
+	 * @name	atenderTicket
+	 *
+	 * @description	Actualiza el siguiente ticket a atender
+	 *
+	 * @param	{string}
+	 *
+	 * @return  {object}
+	**/
 	atenderTicket(escritorio) {
 		if(this.tickets.length === 0) {
 			return 'No hay tickets';
@@ -61,6 +109,15 @@ class TicketControl {
 		return atenderTicket;
 	}
 
+	/**
+	 * @name	reiniciarConteo
+	 *
+	 * @description	Vacia los arrays para comenzar de nuevo
+	 *
+	 * @param	{}
+	 *
+	 * @return  {}
+	**/
 	reiniciarConteo() {
 		this.ultimo = 0;
 		this.tickets = [];
@@ -69,6 +126,15 @@ class TicketControl {
 		this.grabarArchivo();
 	}
 
+	/**
+	 * @name	grabarArchivo
+	 *
+	 * @description	Escribe en el archivo .JSON
+	 *
+	 * @param	{}
+	 *
+	 * @return  {}
+	**/
 	grabarArchivo() {
 		let jsonData = {
 			ultimo: this.ultimo,
@@ -82,6 +148,7 @@ class TicketControl {
 	}
 }
 
+// Exporto la clase
 module.exports = {
 	TicketControl
 }

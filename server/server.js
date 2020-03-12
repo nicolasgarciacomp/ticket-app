@@ -1,3 +1,15 @@
+/**
+ * @fileoverview	./server/server.js
+ *
+ * @version         1.0
+ *
+ * @author          Nicolás Garcia <nicolasgarciacomp@gmail.com>
+ *
+ * History
+ * v1.0 – Se creó el archivo
+**/
+
+// Requires
 const express = require('express');
 const socketIO = require('socket.io');
 const http = require('http');
