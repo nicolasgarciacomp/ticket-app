@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nuevo Ticket</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,13 +19,27 @@
         </tr>
         <tr>
             <td>
+                <input class="form-control col-3" type="text" name="DNI" placeholder="Ingrese DNI" style="display: block; margin-left: auto; margin-right: auto;" id="i-dni">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <select class="custom-select mdb-select col-3" size="4" id="s-motivo">
+                    <option value="" disabled selected>Seleccione motivo...</option>
+                    <option value="Consulta">Consulta</option>
+                    <option value="Operación de caja">Operación de caja</option>
+                    <option value="Otros">Otros</option>
+                  </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <button class="btn btn-secondary btn-lg">
                     Generar nuevo ticket
                 </button>
             </td>
         </tr>
     </table>
-    
     <script type="text/javascript" src="js/libs/jquery.min.js"></script>
     <script type="text/javascript" src="socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/socket.nuevo-ticket.js"></script>
